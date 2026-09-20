@@ -1,0 +1,47 @@
+{
+  "implementation_commit": "6ad36f8",
+  "files": {
+    "otto/relations.py": "05718f31584f610142de2046b821f80fbc85426790d6bcdd632842e37681a9cc",
+    "otto/rank_experiment.py": "e38ab3cadee30ba09d2b7af6e94cef8d038159da17ad9759f475bff5e5539eac",
+    "requirements.lock.txt": "b03d75f9c9c049528aa77021ed8bf409b08ed7ffb3d572376ae4e0142d0b2513",
+    "artifacts/rank-v1/orders_ranker.txt": "e6c5d86226c3dffad8fac18a47f3e7df943456b90371dd6fdca64f8f4394a339",
+    "artifacts/rank-v1/clicks_ranker.txt": "d6408ca259bea1a7c210ba966d2dd50e751e7209de86755dedb33f0a17241290",
+    "artifacts/rank-v1/clicks_ranker_without_relation_features.txt": "d308f94963a6bd0424abecbee2e0aebe41e8d3dea578db0f22ad8fe82d62ec95",
+    "artifacts/rank-v1/orders_ranker_without_relation_features.txt": "11779f7faa2046d49a6a7a1a28234c668821a61731dc2ead84bb8ca7b4a5f6f0",
+    "artifacts/rank-v1/carts_ranker.txt": "e81b09db4b4e0039fbafaabae53a80e8030e4f2df2743600e01f77e392abe66b",
+    "artifacts/rank-v1/carts_ranker_without_relation_features.txt": "a6e3f1ec52a0027995ff8d00ecab60d4312bc66281accbdeecb62c4013cde028",
+    "artifacts/rank-v1/config.json": "f408fa4f66aa5b670f863e09bc23fc8cea3a53855588c407745ab6bd0edca8b5"
+  },
+  "graph_audits": {
+    "eval_graph": {
+      "cutoff_ms": 1661119190707,
+      "max_fit_ts": 1661119190607,
+      "fit_sessions": 1109234
+    },
+    "train_graph": {
+      "cutoff_ms": 1660514390707,
+      "max_fit_ts": 1660514390577,
+      "fit_sessions": 864256
+    }
+  },
+  "training": {
+    "clicks": {
+      "groups": 14085,
+      "rows": 2817000,
+      "positives": 14085,
+      "no_candidate_positive_dropped": 11687
+    },
+    "carts": {
+      "groups": 3321,
+      "rows": 664200,
+      "positives": 4119,
+      "no_candidate_positive_dropped": 1463
+    },
+    "orders": {
+      "groups": 1963,
+      "rows": 392600,
+      "positives": 3218,
+      "no_candidate_positive_dropped": 358
+    }
+  }
+}

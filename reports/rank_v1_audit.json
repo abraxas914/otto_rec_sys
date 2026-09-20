@@ -1,0 +1,176 @@
+{
+  "sessions": 6965,
+  "models": {
+    "baseline": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 6965,
+      "tasks": {
+        "clicks": {
+          "hits": 3207,
+          "denominator": 6808,
+          "recall@20": 0.47106345475910694
+        },
+        "carts": {
+          "hits": 865,
+          "denominator": 2339,
+          "recall@20": 0.3698161607524583
+        },
+        "orders": {
+          "hits": 817,
+          "denominator": 1332,
+          "recall@20": 0.6133633633633634
+        }
+      },
+      "score": 0.5260692117196663
+    },
+    "ranker": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 6965,
+      "tasks": {
+        "clicks": {
+          "hits": 3279,
+          "denominator": 6808,
+          "recall@20": 0.48163924794359575
+        },
+        "carts": {
+          "hits": 916,
+          "denominator": 2339,
+          "recall@20": 0.3916203505771697
+        },
+        "orders": {
+          "hits": 840,
+          "denominator": 1332,
+          "recall@20": 0.6306306306306306
+        }
+      },
+      "score": 0.5440284083458888
+    },
+    "ranker_without_relation_features": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 6965,
+      "tasks": {
+        "clicks": {
+          "hits": 3219,
+          "denominator": 6808,
+          "recall@20": 0.47282608695652173
+        },
+        "carts": {
+          "hits": 891,
+          "denominator": 2339,
+          "recall@20": 0.38093202223172296
+        },
+        "orders": {
+          "hits": 828,
+          "denominator": 1332,
+          "recall@20": 0.6216216216216216
+        }
+      },
+      "score": 0.534535188338142
+    },
+    "rules_adjacent": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 6965,
+      "tasks": {
+        "clicks": {
+          "hits": 3263,
+          "denominator": 6808,
+          "recall@20": 0.47928907168037604
+        },
+        "carts": {
+          "hits": 914,
+          "denominator": 2339,
+          "recall@20": 0.390765284309534
+        },
+        "orders": {
+          "hits": 834,
+          "denominator": 1332,
+          "recall@20": 0.6261261261261262
+        }
+      },
+      "score": 0.5408341681365735
+    },
+    "rules_forward_buy": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 6965,
+      "tasks": {
+        "clicks": {
+          "hits": 3105,
+          "denominator": 6808,
+          "recall@20": 0.4560810810810811
+        },
+        "carts": {
+          "hits": 868,
+          "denominator": 2339,
+          "recall@20": 0.3710987601539119
+        },
+        "orders": {
+          "hits": 818,
+          "denominator": 1332,
+          "recall@20": 0.6141141141141141
+        }
+      },
+      "score": 0.5254062046227501
+    },
+    "rules_buy2buy": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 6965,
+      "tasks": {
+        "clicks": {
+          "hits": 3086,
+          "denominator": 6808,
+          "recall@20": 0.45329024676850765
+        },
+        "carts": {
+          "hits": 853,
+          "denominator": 2339,
+          "recall@20": 0.36468576314664386
+        },
+        "orders": {
+          "hits": 814,
+          "denominator": 1332,
+          "recall@20": 0.6111111111111112
+        }
+      },
+      "score": 0.5214014202875106
+    }
+  },
+  "candidate_metrics": {
+    "clicks": {
+      "denominator": 6808,
+      "baseline_oracle_hits": 3733,
+      "union_oracle_hits": 3842,
+      "new_target_hits": 121,
+      "lost_target_hits": 12
+    },
+    "carts": {
+      "denominator": 2339,
+      "baseline_oracle_hits": 1056,
+      "union_oracle_hits": 1066,
+      "new_target_hits": 15,
+      "lost_target_hits": 5
+    },
+    "orders": {
+      "denominator": 1332,
+      "baseline_oracle_hits": 879,
+      "union_oracle_hits": 881,
+      "new_target_hits": 3,
+      "lost_target_hits": 1
+    }
+  },
+  "config": {
+    "train_graph_before": 1660514390707,
+    "rank_queries_start": 1660514390707,
+    "rank_queries_end": 1661119190707,
+    "eval_graph_before": 1661119190707,
+    "dev_queries_end": 1661723990707,
+    "audit_start": 1661551190707,
+    "train_query_sample": 0.12,
+    "sample_seed": 1907,
+    "trees": 120,
+    "leaves": 15,
+    "candidate_budget": 200,
+    "note": "Audit sessions disjoint from historical 1% development set; later time within same week, not a new unseen calendar week."
+  },
+  "elapsed_seconds": 40.25152212497778,
+  "lightgbm": "4.7.0"
+}

@@ -1,0 +1,152 @@
+{
+  "sessions": 6965,
+  "bootstrap_samples": 1000,
+  "seed": 20260920,
+  "comparisons": {
+    "ranker_minus_baseline": {
+      "difference": 0.017959196626222668,
+      "session_bootstrap_95pct": [
+        0.01046571313370678,
+        0.025726388129952323
+      ]
+    },
+    "ranker_minus_rules_adjacent": {
+      "difference": 0.0031942402093153993,
+      "session_bootstrap_95pct": [
+        -0.0010955494503729543,
+        0.008062501884906183
+      ]
+    },
+    "ranker_minus_ranker_without_relation_features": {
+      "difference": 0.00949322000774684,
+      "session_bootstrap_95pct": [
+        0.004262004227755614,
+        0.014191700435482065
+      ]
+    }
+  },
+  "target_segments": {
+    "baseline": {
+      "seen_target": {
+        "clicks": {
+          "hits": 2212,
+          "targets": 2213
+        },
+        "carts": {
+          "hits": 718,
+          "targets": 723
+        },
+        "orders": {
+          "hits": 780,
+          "targets": 792
+        }
+      },
+      "unseen_target": {
+        "clicks": {
+          "hits": 995,
+          "targets": 4595
+        },
+        "carts": {
+          "hits": 147,
+          "targets": 1656
+        },
+        "orders": {
+          "hits": 37,
+          "targets": 541
+        }
+      }
+    },
+    "ranker": {
+      "seen_target": {
+        "clicks": {
+          "hits": 2208,
+          "targets": 2213
+        },
+        "carts": {
+          "hits": 717,
+          "targets": 723
+        },
+        "orders": {
+          "hits": 781,
+          "targets": 792
+        }
+      },
+      "unseen_target": {
+        "clicks": {
+          "hits": 1071,
+          "targets": 4595
+        },
+        "carts": {
+          "hits": 199,
+          "targets": 1656
+        },
+        "orders": {
+          "hits": 59,
+          "targets": 541
+        }
+      }
+    },
+    "rules_adjacent": {
+      "seen_target": {
+        "clicks": {
+          "hits": 2212,
+          "targets": 2213
+        },
+        "carts": {
+          "hits": 718,
+          "targets": 723
+        },
+        "orders": {
+          "hits": 780,
+          "targets": 792
+        }
+      },
+      "unseen_target": {
+        "clicks": {
+          "hits": 1051,
+          "targets": 4595
+        },
+        "carts": {
+          "hits": 196,
+          "targets": 1656
+        },
+        "orders": {
+          "hits": 54,
+          "targets": 541
+        }
+      }
+    },
+    "ranker_without_relation_features": {
+      "seen_target": {
+        "clicks": {
+          "hits": 2210,
+          "targets": 2213
+        },
+        "carts": {
+          "hits": 716,
+          "targets": 723
+        },
+        "orders": {
+          "hits": 781,
+          "targets": 792
+        }
+      },
+      "unseen_target": {
+        "clicks": {
+          "hits": 1009,
+          "targets": 4595
+        },
+        "carts": {
+          "hits": 175,
+          "targets": 1656
+        },
+        "orders": {
+          "hits": 47,
+          "targets": 541
+        }
+      }
+    }
+  },
+  "segment_note": "Uncapped unique target counts within each session, descriptive only; not official capped metric or a causal estimate.",
+  "interval_note": "Session resampling assumes sessions independent; shared item/time correlations and model-selection uncertainty are not captured."
+}

@@ -1,0 +1,7 @@
+{
+  "otto/baseline.py": "1f8938c5b45748d5ea9ff1ff230a3e60cfa58bcc7a7fb86b1ba10a8492dbc846",
+  "otto/__init__.py": "eaed87c0a0941b84920f6d821e89b1bf7839452d56eae1da58dc0a9f953e3ace",
+  "otto/evaluate.py": "e2c896970c047aa7c8d4be7fff6aca2072e4e216d3eb38179d168cda36abbb1e",
+  "otto/prepare.py": "80e127985c0e277f09d3905404e42d9d33721e010092b293521d909b7355d0a5",
+  "scripts/compare_official.py": "9454508b54bd4f1f4b3f6f58a18cc738bd0e3675c704484b33514ce2adb6861e"
+}

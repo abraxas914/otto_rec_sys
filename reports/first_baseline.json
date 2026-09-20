@@ -1,0 +1,58 @@
+{
+  "scope": "1% development sample by default; not leaderboard-comparable",
+  "input_sha256": "db916a1f51a3db0c58c92adee8fe3a5632662beebb5b852f679a0a71f303b985",
+  "cutoff_ms": 1661119190707,
+  "max_ts_ms": 1661723990706,
+  "seed": 42,
+  "holdout_days": 7,
+  "train_events": 1655347,
+  "validation_sessions": 18152,
+  "unsplittable_sessions": 6,
+  "models": {
+    "popularity": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 146,
+          "denominator": 17761,
+          "recall@20": 0.008220257868363268
+        },
+        "carts": {
+          "hits": 51,
+          "denominator": 6125,
+          "recall@20": 0.008326530612244898
+        },
+        "orders": {
+          "hits": 17,
+          "denominator": 3247,
+          "recall@20": 0.005235602094240838
+        }
+      },
+      "score": 0.006461346227054299
+    },
+    "recent_then_popular": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 5837,
+          "denominator": 17761,
+          "recall@20": 0.32864140532627667
+        },
+        "carts": {
+          "hits": 1807,
+          "denominator": 6125,
+          "recall@20": 0.2950204081632653
+        },
+        "orders": {
+          "hits": 1851,
+          "denominator": 3247,
+          "recall@20": 0.5700646750846936
+        }
+      },
+      "score": 0.4634090680324234
+    }
+  },
+  "elapsed_seconds": 2.6794670830713585
+}

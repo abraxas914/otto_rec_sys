@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-20",
+  "account": "abraxas417",
+  "status": "Complete (after deadline)",
+  "public_score": 0.50587,
+  "private_score": 0.50768,
+  "file": "artifacts/submission-v1/submission.csv.gz",
+  "sha256": "c60b3b192918a89b102f90d2f6af871b193bed9e929fb65ff118d758cf09ef84",
+  "local_dev_score": 0.4857333480294369,
+  "training_fraction": 0.01,
+  "model": "weighted recency + typed covisitation + popularity",
+  "source": "https://www.kaggle.com/competitions/otto-recommender-system/submissions",
+  "verification": "Observed in logged-in Chrome submission list"
+}

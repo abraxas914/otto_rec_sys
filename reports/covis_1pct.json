@@ -1,0 +1,95 @@
+{
+  "scope": "Same 1% development split as M0",
+  "cutoff_ms": 1661119190707,
+  "seed": 42,
+  "config": {
+    "last_events": 30,
+    "pair_window_ms": 86400000,
+    "neighbors": 40
+  },
+  "models": {
+    "recent_covis": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 7142,
+          "denominator": 17761,
+          "recall@20": 0.40211699791678396
+        },
+        "carts": {
+          "hits": 1933,
+          "denominator": 6125,
+          "recall@20": 0.3155918367346939
+        },
+        "orders": {
+          "hits": 1867,
+          "denominator": 3247,
+          "recall@20": 0.5749923005851555
+        }
+      },
+      "score": 0.47988463116317986
+    },
+    "weighted_covis": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 7144,
+          "denominator": 17761,
+          "recall@20": 0.4022296041889533
+        },
+        "carts": {
+          "hits": 1939,
+          "denominator": 6125,
+          "recall@20": 0.31657142857142856
+        },
+        "orders": {
+          "hits": 1897,
+          "denominator": 3247,
+          "recall@20": 0.5842315983985217
+        }
+      },
+      "score": 0.4857333480294369
+    }
+  },
+  "candidate_upper_bound": {
+    "50": {
+      "recall": {
+        "clicks": 0.4298181408704465,
+        "carts": 0.32783673469387753,
+        "orders": 0.5913150600554358
+      },
+      "unseen_in_prefix_target_hits": {
+        "clicks": 1871,
+        "carts": 196,
+        "orders": 33
+      }
+    },
+    "100": {
+      "recall": {
+        "clicks": 0.4409661618152131,
+        "carts": 0.3346938775510204,
+        "orders": 0.5974745919310133
+      },
+      "unseen_in_prefix_target_hits": {
+        "clicks": 2069,
+        "carts": 235,
+        "orders": 44
+      }
+    },
+    "200": {
+      "recall": {
+        "clicks": 0.4483418726423062,
+        "carts": 0.33844897959183673,
+        "orders": 0.602710194025254
+      },
+      "unseen_in_prefix_target_hits": {
+        "clicks": 2200,
+        "carts": 258,
+        "orders": 61
+      }
+    }
+  },
+  "elapsed_seconds": 11.288438500021584
+}

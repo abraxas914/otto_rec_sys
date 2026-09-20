@@ -1,0 +1,15 @@
+__pycache__/
+.venv/
+data/
+artifacts/
+*.zip
+*.parquet
+.env
+kaggle.json
+.local/
+.DS_Store
+.env.*
+*.pkl
+*.joblib
+*.csv.gz
+*.log

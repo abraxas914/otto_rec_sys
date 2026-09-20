@@ -1,0 +1,7 @@
+{
+  "rows": 5015409,
+  "sessions": 1671803,
+  "gzip_crc": "passed",
+  "session_order_and_task_triplets": "passed",
+  "twenty_unique_nonnegative_items": "passed"
+}

@@ -1,0 +1,7 @@
+{
+  "file": "artifacts/submission-v1/submission.csv.gz",
+  "rows_verified": 5015409,
+  "gzip_crc": "passed",
+  "session_order": "passed",
+  "twenty_unique_ids": "passed"
+}

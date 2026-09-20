@@ -1,0 +1,18 @@
+{
+  "sessions": 1671803,
+  "rows": 5015409,
+  "sha256": "4337dcca126c23db4cc384d7e3b56fbd2600bc8308ecc343161ff4f99e74a81f",
+  "bytes": 235247675,
+  "elapsed_seconds": 370.38916633301415,
+  "model": "HybridCovis",
+  "policy": "pooled",
+  "training_input": "data/sample10/train.jsonl",
+  "test_input": "test.jsonl.zip",
+  "status": "Complete (after deadline)",
+  "public_score": 0.5434,
+  "private_score": 0.54352,
+  "local_dev_score": 0.5231363432179101,
+  "account": "abraxas417",
+  "submission_date": "2026-09-20",
+  "source": "Chrome Kaggle submissions page"
+}

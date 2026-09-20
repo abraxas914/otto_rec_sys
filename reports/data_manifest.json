@@ -1,0 +1,30 @@
+{
+  "source": "https://www.kaggle.com/datasets/otto/recsys-dataset",
+  "archive_sha256": "d2ff7ce4b709ab6bff96adda843e42c4d094ae17d510e84822e4a9d31bbca888",
+  "archive_bytes": 2127848819,
+  "fraction": 0.01,
+  "seed": 42,
+  "files": [
+    {
+      "name": "otto-recsys-test.jsonl",
+      "bytes": 750426722,
+      "crc32": 1435384487
+    },
+    {
+      "name": "otto-recsys-train.jsonl",
+      "bytes": 11307535945,
+      "crc32": 1572387568,
+      "total_sessions": 12899779,
+      "sampled_sessions": 129482,
+      "sampled_event_counts": {
+        "clicks": 1966619,
+        "carts": 170133,
+        "orders": 51486
+      },
+      "sampled_min_ts": 1659304801425,
+      "sampled_max_ts": 1661723990706,
+      "sampled_unordered_sessions": 0
+    }
+  ],
+  "scope": "Development sample; not a full-dataset benchmark. Test contents not inspected."
+}

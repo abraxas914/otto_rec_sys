@@ -1,0 +1,39 @@
+{
+  "upstream_source": {
+    "commit": "f404284240ac654d0b924b2fabec0aea7b23f168",
+    "url": "https://github.com/otto-de/recsys-dataset/blob/f404284240ac654d0b924b2fabec0aea7b23f168/src/evaluate.py",
+    "sha256": "0eef54dc8fc173d5da7d036667c1e411f14eef9cc217778cf74d2285b14744cc"
+  },
+  "click_zero_label_count": 0,
+  "models": {
+    "recent_covis": {
+      "official": {
+        "clicks": 0.40211699791678396,
+        "carts": 0.3155918367346939,
+        "orders": 0.5749923005851555,
+        "total": 0.4798846311631798
+      },
+      "local_minus_official": {
+        "clicks": 0.0,
+        "carts": 0.0,
+        "orders": 0.0,
+        "total": 5.551115123125783e-17
+      }
+    },
+    "weighted_covis": {
+      "official": {
+        "clicks": 0.4022296041889533,
+        "carts": 0.31657142857142856,
+        "orders": 0.5842315983985217,
+        "total": 0.4857333480294369
+      },
+      "local_minus_official": {
+        "clicks": 0.0,
+        "carts": 0.0,
+        "orders": 0.0,
+        "total": 0.0
+      }
+    }
+  },
+  "known_difference": "Upstream truthiness checks exclude click aid=0; local code follows metric formula."
+}

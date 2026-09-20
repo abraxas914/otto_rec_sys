@@ -4,12 +4,16 @@
 
 项目的核心问题：**在同一份可用信息和相同计算预算下，应该把哪张列表给用户？我们凭什么选择它，又有哪些效果无法由离线数据证明？**
 
-当前状态（2026-09-20）：已安装 Kaggle CLI 2.2.4，下载官方公开数据，完成 1% 稳定会话抽样和两组时间隔离基线，并与固定版本官方评估器对拍一致。[首轮真实实验报告](reports/M0_FIRST_BASELINE.md)。已完成首次赛后提交：Public **0.50587**、Private **0.50768**，见[提交记录](reports/LEADERBOARD_STATUS.md)。尚未训练精排模型；全量算力与预算待确定。
+当前基线：10% 稳定会话样本，行为加权历史与共现融合，Kaggle 赛后提交 Public **0.54340**、Private **0.54352**。见[提交记录](reports/LEADERBOARD_STATUS.md)。正在推进严格时间隔离的互补召回与分任务学习排序，协议见[排序实验说明](docs/RANKING_EXPERIMENT.md)。
 
 ## 开始
 
 ```sh
-cd /Users/ethan/workspace/projects/kaggle/otto-decision-lab
+git clone https://github.com/abraxas914/otto_rec_sys.git
+cd otto_rec_sys
+python3.12 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.lock.txt
 python3 -m unittest discover -s tests -v
 python3 -m otto.evaluate --labels data/validation_labels.jsonl --predictions artifacts/predictions.csv
 ```
@@ -29,3 +33,9 @@ python3 -m otto.evaluate --labels data/validation_labels.jsonl --predictions art
 真实数据可复現；强基线与逐项消融；统一列表的可行解与 Pareto 比较；服务与策略回退验证；完整实验记录与上线决策备忘录。演示服务不等于已验证的生产系统，离线代理指标不等于实际业务收益。
 
 不预设金牌分数或收益数字。每个阶段通过验收再扩大规模；“极限”指把效果、成本和证据做透，而不是无限堆模型。
+
+## 数据与版本控制
+
+仓库不包含原始数据、虚拟环境、凭据、训练模型或提交文件。请按 docs/KAGGLE_CLI.md 准备官方训练数据；公开研究数据中的完整测试未来序列不可替代比赛截断输入。根目录 test.jsonl.zip 为用户从比赛获取的原始测试输入。
+
+macOS 上 LightGBM 需要 OpenMP：`brew install libomp`。当前实验使用 Python 3.12，依赖版本见 requirements.lock.txt。

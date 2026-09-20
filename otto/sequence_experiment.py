@@ -164,7 +164,10 @@ def feature_batch(entries, kind, vocab, models, encoded, dev):
 
 
 def fit_rankers():
-    import lightgbm as lgb
+    import os
+    import sys
+    if all((OUT/f'{k}_features.npz').exists() for k in KINDS):
+        os.execv(sys.executable, [sys.executable, '-u', '-m', 'otto.sequence_rank'])
     cfg = json.loads((OLD/'config.json').read_text())
     vocab, models, dev = load_models()
     with (OLD/'train_graph.pkl').open('rb') as f: builder = pickle.load(f)
@@ -189,25 +192,8 @@ def fit_rankers():
             assert offset[kind] == len(original[kind])
             np.savez(OUT/f'{kind}_features.npz', **{n: np.concatenate(c) for n, c in chunks[kind].items()})
         del original, chunks
-    del builder, queries, models; gc.collect()
-    if dev.type == 'mps': torch.mps.empty_cache()
-    for kind in KINDS:
-        with np.load(OLD/f'train_{kind}.npz') as a: x, y, groups = a['x'], a['y'], a['groups']
-        extra = dict(np.load(OUT/f'{kind}_features.npz')); pctm = np.load(PCTM/f'{kind}_features.npy')
-        additions = {'coverage': extra['transformer'][:, -1:], 'pool': extra['pool'],
-                     'transformer': extra['transformer'], 'transformer_pctm': np.column_stack([pctm, extra['transformer']])}
-        for name, cols in additions.items():
-            path = OUT/f'{kind}_{name}.txt'
-            if path.exists(): continue
-            names = ([NEURAL_FEATURES[-1]] if name == 'coverage' else PCTM_FEATURES+NEURAL_FEATURES if name.endswith('pctm') else NEURAL_FEATURES)
-            ds = lgb.Dataset(np.column_stack([x, cols]), label=y, group=groups, feature_name=FEATURES+names)
-            model = lgb.train({'objective': 'lambdarank', 'metric': 'ndcg', 'ndcg_eval_at': [20],
-                              'learning_rate': .05, 'num_leaves': 15, 'min_data_in_leaf': 100, 'num_threads': 6,
-                              'verbosity': -1, 'seed': 42, 'deterministic': True, 'force_col_wise': True,
-                              'lambdarank_truncation_level': 25}, ds, num_boost_round=120)
-            model.save_model(str(path)); print('Ranker fitted', kind, name, flush=True)
-            del ds, model
-        del x, y, groups, extra, pctm, additions; gc.collect()
+    print('Features saved; starting isolated CPU ranking process', flush=True)
+    os.execv(sys.executable, [sys.executable, '-u', '-m', 'otto.sequence_rank'])
 
 
 def fresh_query(sid):
@@ -215,7 +201,8 @@ def fresh_query(sid):
 
 
 def evaluate_split(confirm=False):
-    import lightgbm as lgb
+    import subprocess
+    import sys
     start_time = time.perf_counter(); cfg = json.loads((OLD/'config.json').read_text())
     if confirm:
         queries = []
@@ -229,8 +216,6 @@ def evaluate_split(confirm=False):
     with (OLD/'eval_graph.pkl').open('rb') as f: builder = pickle.load(f)
     with (PCTM/'eval_probe.pkl').open('rb') as f: probe = pickle.load(f)
     names = ['rank_v1', 'pctm', 'coverage', 'pool', 'transformer', 'transformer_pctm', 'pool_only', 'transformer_only']
-    boosts = {k: {n: lgb.Booster(model_file=str(OLD/f'{k}_ranker.txt' if n == 'rank_v1' else
-                PCTM/f'{k}_pctm_features.txt' if n == 'pctm' else OUT/f'{k}_{n}.txt')) for n in names[:-2]} for k in KINDS}
     split = 'confirm' if confirm else 'dev'; out = OUT/split; out.mkdir(exist_ok=True)
     label_path = out/'labels.jsonl'
     with label_path.open('w') as f:
@@ -239,6 +224,9 @@ def evaluate_split(confirm=False):
     writers = {n: csv.writer(f) for n, f in handles.items()}
     for w in writers.values(): w.writerow(['session_type', 'labels'])
     coverage = {k: {'targets': 0, 'known_targets': 0, 'candidates': 0, 'known_candidates': 0} for k in KINDS}
+    worker = subprocess.Popen([sys.executable, '-u', '-m', 'otto.sequence_rank', '--predict'],
+                              stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    assert pickle.load(worker.stdout) == 'ready'
     try:
         for start in range(0, len(queries), 128):
             batch = queries[start:start+128]; encoded = encode_batch(batch, vocab, models, dev)
@@ -249,10 +237,8 @@ def evaluate_split(confirm=False):
                 old = np.asarray([r for _, rows, _ in entries for r in rows], np.float32)
                 seq = np.concatenate(extras['transformer']); pool = np.concatenate(extras['pool'])
                 pctm = np.asarray([r for (aids, _, _), v in zip(entries, pv) for r in probe.features(aids, kind, v)], np.float32)
-                matrices = {'rank_v1': old, 'pctm': np.column_stack([old, pctm]), 'coverage': np.column_stack([old, seq[:, -1:]]),
-                            'pool': np.column_stack([old, pool]), 'transformer': np.column_stack([old, seq]),
-                            'transformer_pctm': np.column_stack([old, pctm, seq])}
-                predictions = {n: boosts[kind][n].predict(matrices[n], num_threads=4) for n in boosts[kind]}
+                pickle.dump((kind, old, pctm, pool, seq), worker.stdin, protocol=5); worker.stdin.flush()
+                predictions = pickle.load(worker.stdout)
                 predictions.update(pool_only=pool[:, 0], transformer_only=seq[:, 0])
                 offset = 0
                 for (sid, _, truth), (aids, _, _) in zip(batch, entries):
@@ -266,6 +252,14 @@ def evaluate_split(confirm=False):
             if start % 2560 == 0: print('Evaluate', split, start, '/', len(queries), flush=True)
     finally:
         for f in handles.values(): f.close()
+        try:
+            pickle.dump(None, worker.stdin, protocol=5); worker.stdin.flush()
+            worker.wait(timeout=15)
+        except (BrokenPipeError, subprocess.TimeoutExpired):
+            worker.terminate(); worker.wait(timeout=5)
+        finally:
+            worker.stdin.close(); worker.stdout.close()
+    assert worker.returncode == 0, 'CPU prediction worker failed'
     report = {'sessions': len(queries), 'models': {n: evaluate(label_path, out/f'{n}.csv') for n in names},
               'coverage': coverage, 'seconds': time.perf_counter()-start_time, 'config': CONFIG,
               'note': 'Fixed candidates; one frozen early neural snapshot. New sessions in the same calendar period, not a new week.'}

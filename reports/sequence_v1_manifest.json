@@ -1,0 +1,176 @@
+{
+  "created_utc": "2026-09-20T13:05:28.419297+00:00",
+  "implementation_base_commit": "e717437",
+  "note": "Model hashes frozen before fresh confirmation; later process-isolation changes do not change trained neural weights or ranking parameters.",
+  "config": {
+    "version": 1,
+    "neural_fit_before": 1660514390707,
+    "vocab_limit": 200000,
+    "query_fraction": 0.5,
+    "query_seed": 2701,
+    "split_seed": 2718,
+    "seed": 2718,
+    "length": 30,
+    "dim": 64,
+    "epochs": 3,
+    "batch": 512,
+    "uniform_negatives": 512,
+    "temperature": 0.12,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "confirm_hash_band": [
+      0.3,
+      0.45
+    ],
+    "candidate_policy": "unchanged rank-v1",
+    "neural_snapshot": "frozen before ranking training window, no eval refit",
+    "data_manifest": "20cab79f7a0c5a23b8e1181b5751a6d72046ad4cd13f144379374f11d28f5079"
+  },
+  "data": {
+    "max_fit_ts": 1660514390577,
+    "cutoff": 1660514390707,
+    "vocabulary": 200000,
+    "catalog_before_cutoff": 992784,
+    "event_coverage": 0.8004624108633264,
+    "prefixes": 389324,
+    "rows": 407092,
+    "tasks": {
+      "clicks": {
+        "all_targets": 381670,
+        "known_targets": 303423,
+        "groups": 303423,
+        "unknown_only_groups": 78247
+      },
+      "carts": {
+        "all_targets": 188991,
+        "known_targets": 149372,
+        "groups": 69638,
+        "unknown_only_groups": 10114
+      },
+      "orders": {
+        "all_targets": 90663,
+        "known_targets": 75849,
+        "groups": 34031,
+        "unknown_only_groups": 3477
+      }
+    },
+    "seconds": 18.037877333001234
+  },
+  "training": {
+    "pool": {
+      "encoder": "pool",
+      "device": "mps",
+      "torch": "2.14.0",
+      "parameters": 12816768,
+      "history": [
+        {
+          "epoch": 1,
+          "loss": 4.775990086584235,
+          "seconds": 31.592045750003308
+        },
+        {
+          "epoch": 2,
+          "loss": 2.9842002709307263,
+          "seconds": 29.883519124938175
+        },
+        {
+          "epoch": 3,
+          "loss": 2.3188790250663183,
+          "seconds": 30.814120332943276
+        }
+      ],
+      "seconds": 92.37214583298191,
+      "config": {
+        "version": 1,
+        "neural_fit_before": 1660514390707,
+        "vocab_limit": 200000,
+        "query_fraction": 0.5,
+        "query_seed": 2701,
+        "split_seed": 2718,
+        "seed": 2718,
+        "length": 30,
+        "dim": 64,
+        "epochs": 3,
+        "batch": 512,
+        "uniform_negatives": 512,
+        "temperature": 0.12,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "confirm_hash_band": [
+          0.3,
+          0.45
+        ],
+        "candidate_policy": "unchanged rank-v1",
+        "neural_snapshot": "frozen before ranking training window, no eval refit"
+      }
+    },
+    "transformer": {
+      "encoder": "transformer",
+      "device": "mps",
+      "torch": "2.14.0",
+      "parameters": 12883712,
+      "history": [
+        {
+          "epoch": 1,
+          "loss": 5.114353473761573,
+          "seconds": 44.101623916998506
+        },
+        {
+          "epoch": 2,
+          "loss": 3.2773020629906773,
+          "seconds": 43.48411133396439
+        },
+        {
+          "epoch": 3,
+          "loss": 2.4985859903258896,
+          "seconds": 41.06927745800931
+        }
+      ],
+      "seconds": 128.726105208043,
+      "config": {
+        "version": 1,
+        "neural_fit_before": 1660514390707,
+        "vocab_limit": 200000,
+        "query_fraction": 0.5,
+        "query_seed": 2701,
+        "split_seed": 2718,
+        "seed": 2718,
+        "length": 30,
+        "dim": 64,
+        "epochs": 3,
+        "batch": 512,
+        "uniform_negatives": 512,
+        "temperature": 0.12,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "confirm_hash_band": [
+          0.3,
+          0.45
+        ],
+        "candidate_policy": "unchanged rank-v1",
+        "neural_snapshot": "frozen before ranking training window, no eval refit"
+      }
+    }
+  },
+  "hardware": {
+    "architecture": "arm64",
+    "macos": "26.6.2"
+  },
+  "sha256": {
+    "artifacts/sequence-v1/carts_coverage.txt": "a9cb1f94ceecfa4f58ad4680c700b00ace165a53184802d928e63dd41215dc4d",
+    "artifacts/sequence-v1/carts_pool.txt": "424cb1280f2b0020dadf50b326e5b52aeefd6c66a2efc3400438eb05eccdefa0",
+    "artifacts/sequence-v1/carts_transformer.txt": "47f15047dd73e3564a561fe32279f24edaf51bbd49cd3ea8919d9171b9066c1c",
+    "artifacts/sequence-v1/carts_transformer_pctm.txt": "c7f031ab1122b933f78ee6e6edbf01e8160d4af125e5c8317ceac6ceb4e20b1e",
+    "artifacts/sequence-v1/clicks_coverage.txt": "b39f988b84e54890c38da53109e21a04b51468536f774daf83599ff37ac4cf62",
+    "artifacts/sequence-v1/clicks_pool.txt": "da6a7770679a5ac9bc97949e2453f0b6f75afb6b716fcf9ba6324c469db731fa",
+    "artifacts/sequence-v1/clicks_transformer.txt": "d7c593d5aa96b0c3a4f39cc3ac44a7342cbe06632ede6dc0478eaccb51586631",
+    "artifacts/sequence-v1/clicks_transformer_pctm.txt": "53900a83a4ab5cda48f9991b916f0a02fc53b95168b8ecb2b953d2b1884b8860",
+    "artifacts/sequence-v1/orders_coverage.txt": "48e895d870a1722a4e6d22ec8846fc72a3728506b7bb2ce7e10526304f4d8518",
+    "artifacts/sequence-v1/orders_pool.txt": "6affbd1198a5d303eb9b9140526c0010db80d0e3d2e0407924a687b81d9470cc",
+    "artifacts/sequence-v1/orders_transformer.txt": "821832989c9342970ee5241459131d49eb63fec2c210f6f0dc85e97cd93891ba",
+    "artifacts/sequence-v1/orders_transformer_pctm.txt": "62ff439425f8be9c569a17c5240644eb694d07e051d11aeb301f750cff085b96",
+    "artifacts/sequence-v1/pool.pt": "ea5533c028782181f6f502d50f0882c26219df70e3f29e5294bcc75d5d8e9f12",
+    "artifacts/sequence-v1/transformer.pt": "71e9e60aea51b6655306070f6a426f9a2402095ec448892c714034699ecac105",
+    "artifacts/sequence-v1/vocab.pkl": "6b54a14b19c2fa1c90c44fa3c802fa4ee3436e99502a021bdc70da9f6b8588d6"
+  }
+}

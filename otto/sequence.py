@@ -5,8 +5,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 
-KINDS = ('clicks', 'carts', 'orders')
-NEURAL_FEATURES = ['neural_score', 'neural_rank', 'neural_item_known']
+from otto.sequence_schema import KINDS, NEURAL_FEATURES
 
 
 def encode_events(events, vocab, length=30):

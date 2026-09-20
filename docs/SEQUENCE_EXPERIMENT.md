@@ -39,3 +39,7 @@ python -m otto.sequence_experiment confirm
 模型和训练缓存保存在 artifacts/sequence-v1，汇总保存到 reports。默认优先使用 Apple MPS，不可用时回退 CPU。种子固定不代表不同硬件完全逐位一致。变更配置时使用新实验目录；本实验的前序缓存需来自仓库所描述的固定版本。
 
 来源：[eSASRec 作者仓库](https://github.com/blondered/transformer_benchmark)。其原始模型、损失和数据协议并未在此逐项复现，不能把本轮结果冠以作者模型的基准成绩。
+
+## 本机运行修正
+
+GPU 特征生成完成后，第一次混合进程在进入 LightGBM 排序训练阶段发生原生崩溃（退出码 139）。缓存完整保留；将 CPU 排序训练与推理放入不导入 PyTorch 的独立进程后恢复正常。尚未归因到某个底层库的具体缺陷，不把排查猜测写成确定结论。数据、目标、模型参数未因此修改。

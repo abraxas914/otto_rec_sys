@@ -8,6 +8,8 @@
 
 新增 [2024–2026 方法调研](reports/MODERN_METHODS_REVIEW.md)及 [PCTM 适配实验](reports/PCTM_V1.md)：同候选开发集 0.53427 → 0.53539，本轮新复核集 0.52370 → 0.52552。提升区间跨零，尚不能认定稳定胜出；没有产生新 Kaggle 成绩。
 
+已完成 [第一轮行为序列实验](reports/SEQUENCE_V1.md)：池化与 Transformer、词表覆盖对照和 PCTM 组合均已实测。新会话复核未确认神经特征增益，保留原方案；代码、失败诊断和复现协议完整记录。
+
 ## 开始
 
 ```sh
@@ -39,5 +41,7 @@ python3 -m otto.evaluate --labels data/validation_labels.jsonl --predictions art
 ## 数据与版本控制
 
 仓库不包含原始数据、虚拟环境、凭据、训练模型或提交文件。请按 docs/KAGGLE_CLI.md 准备官方训练数据；公开研究数据中的完整测试未来序列不可替代比赛截断输入。根目录 test.jsonl.zip 为用户从比赛获取的原始测试输入。
+
+神经实验另安装 `requirements-neural.txt`；未安装 PyTorch 时仅跳过相关测试，原基线仍可运行。
 
 macOS 上 LightGBM 需要 OpenMP：`brew install libomp`。当前实验使用 Python 3.12，依赖版本见 requirements.lock.txt。

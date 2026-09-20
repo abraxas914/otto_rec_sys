@@ -2,6 +2,7 @@
 import argparse
 import csv
 import json
+import numpy as np
 from pathlib import Path
 from scripts.compare_predictions import compare
 from otto.rank_experiment import load_queries, bounded_query, targets
@@ -52,9 +53,23 @@ def main():
         for group, tasks in lengths[name].items():
             values = [WEIGHTS[k]*v['hits']/v['denominator'] for k, v in tasks.items() if v['denominator']]
             tasks['weighted_recall'] = sum(values) if len(values) == 3 else None
+    train = np.load('artifacts/sequence-v1/training.npz')
+    value_kinds = np.repeat(train['kinds'], np.diff(train['offsets']))
+    frequency = {k: np.bincount(train['values'][value_kinds == i], minlength=len(vocab)+2)
+                 for i, k in enumerate(KINDS)}
+    exposure = {k: {'outside_vocabulary': 0, 'zero_same_task_positive': 0,
+                    'one_to_four_same_task_positives': 0, 'five_plus_same_task_positives': 0} for k in KINDS}
+    for _, _, truth in queries:
+        for kind in KINDS:
+            for aid in targets(truth, kind):
+                if aid not in vocab: group = 'outside_vocabulary'
+                else:
+                    count = frequency[kind][vocab[aid]]
+                    group = 'zero_same_task_positive' if count == 0 else 'one_to_four_same_task_positives' if count < 5 else 'five_plus_same_task_positives'
+                exposure[kind][group] += 1
     report = {'sessions': len(queries), 'comparisons': comparisons, 'target_segments': segments,
-              'prefix_length': lengths, 'primary_comparison': 'transformer_minus_rank_v1',
-              'note': 'Multiple descriptive comparisons, no multiplicity correction. Session bootstrap ignores item/time correlations and model selection. Target segments use uncapped unique counts; length cohorts use official denominators.'}
+              'prefix_length': lengths, 'training_positive_exposure': exposure, 'primary_comparison': 'transformer_minus_rank_v1',
+              'note': 'Multiple descriptive comparisons, no multiplicity correction. Session bootstrap ignores item/time correlations and model selection. Exposure counts refer to available same-task positive sets, not necessarily the positive sampled in each epoch. Target segments use uncapped unique counts; length cohorts use official denominators.'}
     Path(f'reports/sequence_v1_{args.split}_diagnostics.json').write_text(json.dumps(report, indent=2)+'\n')
     print(json.dumps({k: {'difference': v['difference'], 'interval': v['session_bootstrap_95pct']} for k, v in comparisons.items()}, indent=2))
 

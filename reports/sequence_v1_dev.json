@@ -1,0 +1,226 @@
+{
+  "sessions": 18152,
+  "models": {
+    "rank_v1": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8486,
+          "denominator": 17761,
+          "recall@20": 0.4777884128145938
+        },
+        "carts": {
+          "hits": 2274,
+          "denominator": 6125,
+          "recall@20": 0.37126530612244896
+        },
+        "orders": {
+          "hits": 2030,
+          "denominator": 3247,
+          "recall@20": 0.6251924853711118
+        }
+      },
+      "score": 0.5342739243408612
+    },
+    "pctm": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8502,
+          "denominator": 17761,
+          "recall@20": 0.47868926299194864
+        },
+        "carts": {
+          "hits": 2295,
+          "denominator": 6125,
+          "recall@20": 0.3746938775510204
+        },
+        "orders": {
+          "hits": 2030,
+          "denominator": 3247,
+          "recall@20": 0.6251924853711118
+        }
+      },
+      "score": 0.535392580787168
+    },
+    "coverage": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8494,
+          "denominator": 17761,
+          "recall@20": 0.4782388379032712
+        },
+        "carts": {
+          "hits": 2281,
+          "denominator": 6125,
+          "recall@20": 0.3724081632653061
+        },
+        "orders": {
+          "hits": 2030,
+          "denominator": 3247,
+          "recall@20": 0.6251924853711118
+        }
+      },
+      "score": 0.534661823992586
+    },
+    "pool": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8479,
+          "denominator": 17761,
+          "recall@20": 0.477394290862001
+        },
+        "carts": {
+          "hits": 2271,
+          "denominator": 6125,
+          "recall@20": 0.3707755102040816
+        },
+        "orders": {
+          "hits": 2028,
+          "denominator": 3247,
+          "recall@20": 0.624576532183554
+        }
+      },
+      "score": 0.533718001457557
+    },
+    "transformer": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8499,
+          "denominator": 17761,
+          "recall@20": 0.4785203535836946
+        },
+        "carts": {
+          "hits": 2271,
+          "denominator": 6125,
+          "recall@20": 0.3707755102040816
+        },
+        "orders": {
+          "hits": 2028,
+          "denominator": 3247,
+          "recall@20": 0.624576532183554
+        }
+      },
+      "score": 0.5338306077297263
+    },
+    "transformer_pctm": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8527,
+          "denominator": 17761,
+          "recall@20": 0.48009684139406567
+        },
+        "carts": {
+          "hits": 2300,
+          "denominator": 6125,
+          "recall@20": 0.37551020408163266
+        },
+        "orders": {
+          "hits": 2033,
+          "denominator": 3247,
+          "recall@20": 0.6261164151524484
+        }
+      },
+      "score": 0.5363325944553654
+    },
+    "pool_only": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 5513,
+          "denominator": 17761,
+          "recall@20": 0.3103991892348404
+        },
+        "carts": {
+          "hits": 1419,
+          "denominator": 6125,
+          "recall@20": 0.2316734693877551
+        },
+        "orders": {
+          "hits": 1130,
+          "denominator": 3247,
+          "recall@20": 0.34801355097012626
+        }
+      },
+      "score": 0.3093500903218863
+    },
+    "transformer_only": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 5411,
+          "denominator": 17761,
+          "recall@20": 0.30465626935420304
+        },
+        "carts": {
+          "hits": 1387,
+          "denominator": 6125,
+          "recall@20": 0.22644897959183674
+        },
+        "orders": {
+          "hits": 1131,
+          "denominator": 3247,
+          "recall@20": 0.34832152756390516
+        }
+      },
+      "score": 0.3073932373513144
+    }
+  },
+  "coverage": {
+    "clicks": {
+      "targets": 17761,
+      "known_targets": 12290,
+      "candidates": 3630400,
+      "known_candidates": 3324639
+    },
+    "carts": {
+      "targets": 6229,
+      "known_targets": 4006,
+      "candidates": 3630400,
+      "known_candidates": 3257561
+    },
+    "orders": {
+      "targets": 3249,
+      "known_targets": 2205,
+      "candidates": 3630400,
+      "known_candidates": 3257561
+    }
+  },
+  "seconds": 153.7247222920414,
+  "config": {
+    "version": 1,
+    "neural_fit_before": 1660514390707,
+    "vocab_limit": 200000,
+    "query_fraction": 0.5,
+    "query_seed": 2701,
+    "split_seed": 2718,
+    "seed": 2718,
+    "length": 30,
+    "dim": 64,
+    "epochs": 3,
+    "batch": 512,
+    "uniform_negatives": 512,
+    "temperature": 0.12,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "confirm_hash_band": [
+      0.3,
+      0.45
+    ],
+    "candidate_policy": "unchanged rank-v1",
+    "neural_snapshot": "frozen before ranking training window, no eval refit"
+  },
+  "note": "Fixed candidates; one frozen early neural snapshot. New sessions in the same calendar period, not a new week."
+}

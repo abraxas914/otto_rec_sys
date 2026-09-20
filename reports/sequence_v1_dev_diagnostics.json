@@ -1,0 +1,713 @@
+{
+  "sessions": 18152,
+  "comparisons": {
+    "transformer_minus_rank_v1": {
+      "sessions": 18152,
+      "base_score": 0.5342739243408612,
+      "candidate_score": 0.5338306077297263,
+      "difference": -0.00044331661113483634,
+      "session_bootstrap_95pct": [
+        -0.002246525168917348,
+        0.0014855765936405113
+      ],
+      "repeats": 1000,
+      "seed": 20260920,
+      "caveat": "Assumes independent sessions; does not model shared item/time correlations or adaptive model selection."
+    },
+    "transformer_minus_coverage": {
+      "sessions": 18152,
+      "base_score": 0.534661823992586,
+      "candidate_score": 0.5338306077297263,
+      "difference": -0.0008312162628596464,
+      "session_bootstrap_95pct": [
+        -0.0025424340255543656,
+        0.0009142848832775576
+      ],
+      "repeats": 1000,
+      "seed": 20260920,
+      "caveat": "Assumes independent sessions; does not model shared item/time correlations or adaptive model selection."
+    },
+    "transformer_minus_pool": {
+      "sessions": 18152,
+      "base_score": 0.533718001457557,
+      "candidate_score": 0.5338306077297263,
+      "difference": 0.0001126062721693577,
+      "session_bootstrap_95pct": [
+        -0.001324453905122066,
+        0.0017451013403148457
+      ],
+      "repeats": 1000,
+      "seed": 20260920,
+      "caveat": "Assumes independent sessions; does not model shared item/time correlations or adaptive model selection."
+    },
+    "transformer_pctm_minus_pctm": {
+      "sessions": 18152,
+      "base_score": 0.535392580787168,
+      "candidate_score": 0.5363325944553654,
+      "difference": 0.0009400136681974036,
+      "session_bootstrap_95pct": [
+        -0.0007427233047935805,
+        0.002635299358629003
+      ],
+      "repeats": 1000,
+      "seed": 20260920,
+      "caveat": "Assumes independent sessions; does not model shared item/time correlations or adaptive model selection."
+    }
+  },
+  "target_segments": {
+    "rank_v1": {
+      "seen": {
+        "clicks": {
+          "hits": 5750,
+          "targets": 5763
+        },
+        "carts": {
+          "hits": 1783,
+          "targets": 1815
+        },
+        "orders": {
+          "hits": 1876,
+          "targets": 1896
+        }
+      },
+      "unseen": {
+        "clicks": {
+          "hits": 2736,
+          "targets": 11998
+        },
+        "carts": {
+          "hits": 491,
+          "targets": 4414
+        },
+        "orders": {
+          "hits": 154,
+          "targets": 1353
+        }
+      },
+      "in_vocabulary": {
+        "clicks": {
+          "hits": 6603,
+          "targets": 12290
+        },
+        "carts": {
+          "hits": 1668,
+          "targets": 4006
+        },
+        "orders": {
+          "hits": 1467,
+          "targets": 2205
+        }
+      },
+      "outside_vocabulary": {
+        "clicks": {
+          "hits": 1883,
+          "targets": 5471
+        },
+        "carts": {
+          "hits": 606,
+          "targets": 2223
+        },
+        "orders": {
+          "hits": 563,
+          "targets": 1044
+        }
+      }
+    },
+    "pctm": {
+      "seen": {
+        "clicks": {
+          "hits": 5746,
+          "targets": 5763
+        },
+        "carts": {
+          "hits": 1786,
+          "targets": 1815
+        },
+        "orders": {
+          "hits": 1875,
+          "targets": 1896
+        }
+      },
+      "unseen": {
+        "clicks": {
+          "hits": 2756,
+          "targets": 11998
+        },
+        "carts": {
+          "hits": 509,
+          "targets": 4414
+        },
+        "orders": {
+          "hits": 155,
+          "targets": 1353
+        }
+      },
+      "in_vocabulary": {
+        "clicks": {
+          "hits": 6625,
+          "targets": 12290
+        },
+        "carts": {
+          "hits": 1681,
+          "targets": 4006
+        },
+        "orders": {
+          "hits": 1465,
+          "targets": 2205
+        }
+      },
+      "outside_vocabulary": {
+        "clicks": {
+          "hits": 1877,
+          "targets": 5471
+        },
+        "carts": {
+          "hits": 614,
+          "targets": 2223
+        },
+        "orders": {
+          "hits": 565,
+          "targets": 1044
+        }
+      }
+    },
+    "coverage": {
+      "seen": {
+        "clicks": {
+          "hits": 5751,
+          "targets": 5763
+        },
+        "carts": {
+          "hits": 1784,
+          "targets": 1815
+        },
+        "orders": {
+          "hits": 1875,
+          "targets": 1896
+        }
+      },
+      "unseen": {
+        "clicks": {
+          "hits": 2743,
+          "targets": 11998
+        },
+        "carts": {
+          "hits": 497,
+          "targets": 4414
+        },
+        "orders": {
+          "hits": 155,
+          "targets": 1353
+        }
+      },
+      "in_vocabulary": {
+        "clicks": {
+          "hits": 6629,
+          "targets": 12290
+        },
+        "carts": {
+          "hits": 1673,
+          "targets": 4006
+        },
+        "orders": {
+          "hits": 1467,
+          "targets": 2205
+        }
+      },
+      "outside_vocabulary": {
+        "clicks": {
+          "hits": 1865,
+          "targets": 5471
+        },
+        "carts": {
+          "hits": 608,
+          "targets": 2223
+        },
+        "orders": {
+          "hits": 563,
+          "targets": 1044
+        }
+      }
+    },
+    "pool": {
+      "seen": {
+        "clicks": {
+          "hits": 5750,
+          "targets": 5763
+        },
+        "carts": {
+          "hits": 1784,
+          "targets": 1815
+        },
+        "orders": {
+          "hits": 1875,
+          "targets": 1896
+        }
+      },
+      "unseen": {
+        "clicks": {
+          "hits": 2729,
+          "targets": 11998
+        },
+        "carts": {
+          "hits": 487,
+          "targets": 4414
+        },
+        "orders": {
+          "hits": 153,
+          "targets": 1353
+        }
+      },
+      "in_vocabulary": {
+        "clicks": {
+          "hits": 6616,
+          "targets": 12290
+        },
+        "carts": {
+          "hits": 1667,
+          "targets": 4006
+        },
+        "orders": {
+          "hits": 1464,
+          "targets": 2205
+        }
+      },
+      "outside_vocabulary": {
+        "clicks": {
+          "hits": 1863,
+          "targets": 5471
+        },
+        "carts": {
+          "hits": 604,
+          "targets": 2223
+        },
+        "orders": {
+          "hits": 564,
+          "targets": 1044
+        }
+      }
+    },
+    "transformer": {
+      "seen": {
+        "clicks": {
+          "hits": 5752,
+          "targets": 5763
+        },
+        "carts": {
+          "hits": 1785,
+          "targets": 1815
+        },
+        "orders": {
+          "hits": 1875,
+          "targets": 1896
+        }
+      },
+      "unseen": {
+        "clicks": {
+          "hits": 2747,
+          "targets": 11998
+        },
+        "carts": {
+          "hits": 486,
+          "targets": 4414
+        },
+        "orders": {
+          "hits": 153,
+          "targets": 1353
+        }
+      },
+      "in_vocabulary": {
+        "clicks": {
+          "hits": 6636,
+          "targets": 12290
+        },
+        "carts": {
+          "hits": 1665,
+          "targets": 4006
+        },
+        "orders": {
+          "hits": 1465,
+          "targets": 2205
+        }
+      },
+      "outside_vocabulary": {
+        "clicks": {
+          "hits": 1863,
+          "targets": 5471
+        },
+        "carts": {
+          "hits": 606,
+          "targets": 2223
+        },
+        "orders": {
+          "hits": 563,
+          "targets": 1044
+        }
+      }
+    },
+    "transformer_pctm": {
+      "seen": {
+        "clicks": {
+          "hits": 5748,
+          "targets": 5763
+        },
+        "carts": {
+          "hits": 1788,
+          "targets": 1815
+        },
+        "orders": {
+          "hits": 1875,
+          "targets": 1896
+        }
+      },
+      "unseen": {
+        "clicks": {
+          "hits": 2779,
+          "targets": 11998
+        },
+        "carts": {
+          "hits": 512,
+          "targets": 4414
+        },
+        "orders": {
+          "hits": 158,
+          "targets": 1353
+        }
+      },
+      "in_vocabulary": {
+        "clicks": {
+          "hits": 6652,
+          "targets": 12290
+        },
+        "carts": {
+          "hits": 1688,
+          "targets": 4006
+        },
+        "orders": {
+          "hits": 1468,
+          "targets": 2205
+        }
+      },
+      "outside_vocabulary": {
+        "clicks": {
+          "hits": 1875,
+          "targets": 5471
+        },
+        "carts": {
+          "hits": 612,
+          "targets": 2223
+        },
+        "orders": {
+          "hits": 565,
+          "targets": 1044
+        }
+      }
+    }
+  },
+  "prefix_length": {
+    "rank_v1": {
+      "1-5": {
+        "clicks": {
+          "hits": 6959,
+          "denominator": 14621
+        },
+        "carts": {
+          "hits": 1394,
+          "denominator": 3092
+        },
+        "orders": {
+          "hits": 772,
+          "denominator": 1324
+        },
+        "weighted_recall": 0.5326971301764752
+      },
+      "6-20": {
+        "clicks": {
+          "hits": 1281,
+          "denominator": 2595
+        },
+        "carts": {
+          "hits": 631,
+          "denominator": 1975
+        },
+        "orders": {
+          "hits": 785,
+          "denominator": 1226
+        },
+        "weighted_recall": 0.5293884458235272
+      },
+      "21+": {
+        "clicks": {
+          "hits": 246,
+          "denominator": 545
+        },
+        "carts": {
+          "hits": 249,
+          "denominator": 1058
+        },
+        "orders": {
+          "hits": 473,
+          "denominator": 697
+        },
+        "weighted_recall": 0.5229161307605127
+      }
+    },
+    "pctm": {
+      "1-5": {
+        "clicks": {
+          "hits": 6980,
+          "denominator": 14621
+        },
+        "carts": {
+          "hits": 1405,
+          "denominator": 3092
+        },
+        "orders": {
+          "hits": 773,
+          "denominator": 1324
+        },
+        "weighted_recall": 0.5343612017838173
+      },
+      "6-20": {
+        "clicks": {
+          "hits": 1279,
+          "denominator": 2595
+        },
+        "carts": {
+          "hits": 638,
+          "denominator": 1975
+        },
+        "orders": {
+          "hits": 784,
+          "denominator": 1226
+        },
+        "weighted_recall": 0.5298852692607307
+      },
+      "21+": {
+        "clicks": {
+          "hits": 243,
+          "denominator": 545
+        },
+        "carts": {
+          "hits": 252,
+          "denominator": 1058
+        },
+        "orders": {
+          "hits": 473,
+          "denominator": 697
+        },
+        "weighted_recall": 0.5232163336706253
+      }
+    },
+    "coverage": {
+      "1-5": {
+        "clicks": {
+          "hits": 6962,
+          "denominator": 14621
+        },
+        "carts": {
+          "hits": 1397,
+          "denominator": 3092
+        },
+        "orders": {
+          "hits": 773,
+          "denominator": 1324
+        },
+        "weighted_recall": 0.5334618945529854
+      },
+      "6-20": {
+        "clicks": {
+          "hits": 1284,
+          "denominator": 2595
+        },
+        "carts": {
+          "hits": 633,
+          "denominator": 1975
+        },
+        "orders": {
+          "hits": 785,
+          "denominator": 1226
+        },
+        "weighted_recall": 0.5298078502282979
+      },
+      "21+": {
+        "clicks": {
+          "hits": 248,
+          "denominator": 545
+        },
+        "carts": {
+          "hits": 251,
+          "denominator": 1058
+        },
+        "orders": {
+          "hits": 472,
+          "denominator": 697
+        },
+        "weighted_recall": 0.5229893788503164
+      }
+    },
+    "pool": {
+      "1-5": {
+        "clicks": {
+          "hits": 6957,
+          "denominator": 14621
+        },
+        "carts": {
+          "hits": 1395,
+          "denominator": 3092
+        },
+        "orders": {
+          "hits": 771,
+          "denominator": 1324
+        },
+        "weighted_recall": 0.5323273035956695
+      },
+      "6-20": {
+        "clicks": {
+          "hits": 1276,
+          "denominator": 2595
+        },
+        "carts": {
+          "hits": 628,
+          "denominator": 1975
+        },
+        "orders": {
+          "hits": 784,
+          "denominator": 1226
+        },
+        "weighted_recall": 0.5282506749825423
+      },
+      "21+": {
+        "clicks": {
+          "hits": 246,
+          "denominator": 545
+        },
+        "carts": {
+          "hits": 248,
+          "denominator": 1058
+        },
+        "orders": {
+          "hits": 473,
+          "denominator": 697
+        },
+        "weighted_recall": 0.5226325768852764
+      }
+    },
+    "transformer": {
+      "1-5": {
+        "clicks": {
+          "hits": 6970,
+          "denominator": 14621
+        },
+        "carts": {
+          "hits": 1396,
+          "denominator": 3092
+        },
+        "orders": {
+          "hits": 770,
+          "denominator": 1324
+        },
+        "weighted_recall": 0.5320600691768225
+      },
+      "6-20": {
+        "clicks": {
+          "hits": 1283,
+          "denominator": 2595
+        },
+        "carts": {
+          "hits": 626,
+          "denominator": 1975
+        },
+        "orders": {
+          "hits": 785,
+          "denominator": 1226
+        },
+        "weighted_recall": 0.5287060234435853
+      },
+      "21+": {
+        "clicks": {
+          "hits": 246,
+          "denominator": 545
+        },
+        "carts": {
+          "hits": 249,
+          "denominator": 1058
+        },
+        "orders": {
+          "hits": 473,
+          "denominator": 697
+        },
+        "weighted_recall": 0.5229161307605127
+      }
+    },
+    "transformer_pctm": {
+      "1-5": {
+        "clicks": {
+          "hits": 6993,
+          "denominator": 14621
+        },
+        "carts": {
+          "hits": 1409,
+          "denominator": 3092
+        },
+        "orders": {
+          "hits": 775,
+          "denominator": 1324
+        },
+        "weighted_recall": 0.5357445577199651
+      },
+      "6-20": {
+        "clicks": {
+          "hits": 1289,
+          "denominator": 2595
+        },
+        "carts": {
+          "hits": 639,
+          "denominator": 1975
+        },
+        "orders": {
+          "hits": 786,
+          "denominator": 1226
+        },
+        "weighted_recall": 0.5314013172718144
+      },
+      "21+": {
+        "clicks": {
+          "hits": 245,
+          "denominator": 545
+        },
+        "carts": {
+          "hits": 252,
+          "denominator": 1058
+        },
+        "orders": {
+          "hits": 472,
+          "denominator": 697
+        },
+        "weighted_recall": 0.5227224740099563
+      }
+    }
+  },
+  "training_positive_exposure": {
+    "clicks": {
+      "outside_vocabulary": 5471,
+      "zero_same_task_positive": 2071,
+      "one_to_four_same_task_positives": 4789,
+      "five_plus_same_task_positives": 5430
+    },
+    "carts": {
+      "outside_vocabulary": 2223,
+      "zero_same_task_positive": 1218,
+      "one_to_four_same_task_positives": 1758,
+      "five_plus_same_task_positives": 1030
+    },
+    "orders": {
+      "outside_vocabulary": 1044,
+      "zero_same_task_positive": 870,
+      "one_to_four_same_task_positives": 904,
+      "five_plus_same_task_positives": 431
+    }
+  },
+  "primary_comparison": "transformer_minus_rank_v1",
+  "note": "Multiple descriptive comparisons, no multiplicity correction. Session bootstrap ignores item/time correlations and model selection. Exposure counts refer to available same-task positive sets, not necessarily the positive sampled in each epoch. Target segments use uncapped unique counts; length cohorts use official denominators."
+}

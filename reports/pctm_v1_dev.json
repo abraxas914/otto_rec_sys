@@ -1,0 +1,122 @@
+{
+  "sessions": 18152,
+  "models": {
+    "rank_v1": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8486,
+          "denominator": 17761,
+          "recall@20": 0.4777884128145938
+        },
+        "carts": {
+          "hits": 2274,
+          "denominator": 6125,
+          "recall@20": 0.37126530612244896
+        },
+        "orders": {
+          "hits": 2030,
+          "denominator": 3247,
+          "recall@20": 0.6251924853711118
+        }
+      },
+      "score": 0.5342739243408612
+    },
+    "frequency_only": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8481,
+          "denominator": 17761,
+          "recall@20": 0.4775068971341704
+        },
+        "carts": {
+          "hits": 2279,
+          "denominator": 6125,
+          "recall@20": 0.3720816326530612
+        },
+        "orders": {
+          "hits": 2022,
+          "denominator": 3247,
+          "recall@20": 0.6227286726208808
+        }
+      },
+      "score": 0.5330123830818639
+    },
+    "pctm_features": {
+      "protocol": "otto-competition-recall@20",
+      "sessions": 18152,
+      "tasks": {
+        "clicks": {
+          "hits": 8502,
+          "denominator": 17761,
+          "recall@20": 0.47868926299194864
+        },
+        "carts": {
+          "hits": 2295,
+          "denominator": 6125,
+          "recall@20": 0.3746938775510204
+        },
+        "orders": {
+          "hits": 2030,
+          "denominator": 3247,
+          "recall@20": 0.6251924853711118
+        }
+      },
+      "score": 0.535392580787168
+    }
+  },
+  "candidate_diagnostic": {
+    "clicks": {
+      "new_hits_if_add_top50": 116,
+      "denominator": 17761
+    },
+    "carts": {
+      "new_hits_if_add_top50": 15,
+      "denominator": 6125
+    },
+    "orders": {
+      "new_hits_if_add_top50": 3,
+      "denominator": 3247
+    }
+  },
+  "note": "Identical v1 candidates for all evaluated models; diagnostic extra candidates are NOT used. No standalone full-catalog PCTM benchmark.",
+  "config": {
+    "parent": {
+      "train_graph_before": 1660514390707,
+      "rank_queries_start": 1660514390707,
+      "rank_queries_end": 1661119190707,
+      "eval_graph_before": 1661119190707,
+      "dev_queries_end": 1661723990707,
+      "audit_start": 1661551190707,
+      "train_query_sample": 0.12,
+      "sample_seed": 1907,
+      "trees": 120,
+      "leaves": 15,
+      "candidate_budget": 200,
+      "note": "Audit sessions disjoint from historical 1% development set; later time within same week, not a new unseen calendar week."
+    },
+    "distance": 5,
+    "decay": 0.7,
+    "history_decay": 0.7,
+    "tau": 15000.0,
+    "neighbors": 80,
+    "candidate_policy": "unchanged rank-v1 candidates",
+    "confirm_hash_band": [
+      0.15,
+      0.3
+    ],
+    "model_names": [
+      "rank_v1",
+      "frequency_only",
+      "pctm_features"
+    ],
+    "trees": 120,
+    "leaves": 15
+  },
+  "seconds": 197.1138587091118,
+  "max_fit_ts": 1661119190607,
+  "catalog_size": 1190158
+}

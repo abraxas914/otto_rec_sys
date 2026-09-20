@@ -1,0 +1,13 @@
+{
+  "sessions": 6951,
+  "base_score": 0.523699743243041,
+  "candidate_score": 0.5255166183610889,
+  "difference": 0.0018168751180478449,
+  "session_bootstrap_95pct": [
+    -0.00111652836681577,
+    0.004784507358801851
+  ],
+  "repeats": 1000,
+  "seed": 20260920,
+  "caveat": "Assumes independent sessions; does not model shared item/time correlations or adaptive model selection."
+}

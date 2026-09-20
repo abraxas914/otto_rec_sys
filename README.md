@@ -6,6 +6,8 @@
 
 当前基线：10% 稳定会话样本，行为加权历史与共现融合，Kaggle 赛后提交 Public **0.54340**、Private **0.54352**。见[提交记录](reports/LEADERBOARD_STATUS.md)。已完成首轮严格时间隔离的互补召回与分任务学习排序：固定开发集 **0.53427**，新会话复核 **0.54403**（均为本地分数，尚未提交）。见[实验结果](reports/RANK_V1.md)与[协议](docs/RANKING_EXPERIMENT.md)。
 
+新增 [2024–2026 方法调研](reports/MODERN_METHODS_REVIEW.md)及 [PCTM 适配实验](reports/PCTM_V1.md)：同候选开发集 0.53427 → 0.53539，本轮新复核集 0.52370 → 0.52552。提升区间跨零，尚不能认定稳定胜出；没有产生新 Kaggle 成绩。
+
 ## 开始
 
 ```sh
